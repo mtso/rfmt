@@ -10,5 +10,7 @@ npm install -g rfmt
 
 ## Usage
 
-1. Change into a target directory.
-2. Run `fmt` from the command line.
+From the command line:
+
+1. Change directory `cd` into the target directory that contains your JavaScript files.
+2. Run `fmt`.
