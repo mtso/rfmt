@@ -1,0 +1,32 @@
+{
+  "name": "rfmt",
+  "version": "0.1.2",
+  "description": "Recursively format js files.",
+  "scripts": {
+    "test": "mocha --reporter flush-reporter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtso/rfmt.git"
+  },
+  "keywords": [
+    "fmt"
+  ],
+  "author": "mtso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtso/rfmt/issues"
+  },
+  "homepage": "https://github.com/mtso/rfmt#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "flush-reporter": "^1.1.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "prettier": "^0.22.0"
+  },
+  "bin": {
+    "fmt": "index.js"
+  }
+}
