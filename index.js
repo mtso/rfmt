@@ -21,23 +21,44 @@ const options = {
 
 /* Begin execution here */
 
-var files = fs.readdirSync('./');
+const files = fs.readdirSync('./');
 
-files = files.filter(function(filename) {
+const targets = files.filter(function(filename) {
   return filename.endsWith('.js') && !filename.startsWith('.');
 });
 
-files.forEach(function(file) {
+targets.forEach(function(file) {
   format(file, options, 'utf8');
 });
 
 /* Formatter */
 
 function format(filename, options, encoding) {
-  var source = fs.readFileSync(filename, encoding);
-  var formatted = prettier.format(source, options);
+  const source = fs.readFileSync(filename, encoding);
+  const formatted = prettier.format(source, options);
   if (source !== formatted) {
     fs.writeFileSync(filename, formatted, encoding);
     console.log(filename);
   }
 }
+
+function formatJs(filepath) {
+  const current = fs.readdirSync(filepath);
+  const directories = current.filter(function(filename) {
+    const info = fs.stat(path.join(filepath, filename));
+    if (info) {
+      return info.isDirectory();
+    }
+    return false;
+  });
+  console.log(directories);
+  if (directories.length === 0) {
+    return;
+  } else {
+    directories.forEach(function(dir) {
+      formatJs(path.join(filepath, dir));
+    });
+  }
+}
+
+formatJs('./');
