@@ -21,7 +21,7 @@ const options = {
 
 /* Begin execution here */
 
-var files = fs.readdirSync(__dirname);
+var files = fs.readdirSync('./');
 
 files = files.filter(function(filename) {
   return filename.endsWith('.js') && !filename.startsWith('.');
